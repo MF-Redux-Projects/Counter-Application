@@ -17,34 +17,26 @@
 
     <!-- counters -->
     <div class="max-w-md mx-auto mt-10 space-y-5">
-        <div
-                class="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow"
-        >
-            <div class="text-2xl font-semibold">0</div>
-            <div class="flex space-x-3">
-                <button
-                        class="bg-indigo-400 text-white px-3 py-2 rounded shadow"
-                >
-                    Increment
-                </button>
-                <button
-                        class="bg-red-400 text-white px-3 py-2 rounded shadow"
-                >
-                    Decrement
-                </button>
+        <div id="counter-wrapper">
+            <div id="counter-clone" class="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
+                <div class="text-2xl font-semibold" id="counter-1">0</div>
+                <div class="flex space-x-3">
+                    <button class="bg-indigo-400 text-white px-3 py-2 rounded shadow">
+                        Increment
+                    </button>
+                    <button class="bg-red-400 text-white px-3 py-2 rounded shadow">
+                        Decrement
+                    </button>
+                </div>
             </div>
         </div>
 
         <div class="h-auto bg-transparent flex justify-end">
             <div class="flex space-x-3">
-                <button
-                        class="bg-indigo-400 text-white px-3 py-2 rounded shadow"
-                >
+                <button id="add-counter" class="bg-indigo-400 text-white px-3 py-2 rounded shadow">
                     + Add Counter
                 </button>
-                <button
-                        class="bg-red-400 text-white px-3 py-2 rounded shadow"
-                >
+                <button id="reset" class="bg-red-400 text-white px-3 py-2 rounded shadow">
                     Reset
                 </button>
             </div>
