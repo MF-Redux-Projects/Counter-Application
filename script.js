@@ -98,12 +98,24 @@ store.subscribe(render);
 //Button Click Listener
 function handleIncrement(event) {
     let id = event.target.parentNode.parentNode.childNodes[1].id;
-    store.dispatch(increment(id, 3));
+    let countStepId = event.target.parentNode.childNodes[1].id;
+    let countStepEl = document.getElementById(countStepId);
+    if(countStepEl.value === "") {
+        alert("Please enter count step");
+        return;
+    }
+    store.dispatch(increment(id, parseInt(countStepEl.value)));
 }
 
 function handleDecrement(event) {
     let id = event.target.parentNode.parentNode.childNodes[1].id;
-    store.dispatch(decrement(id, 2));
+    let countStepId = event.target.parentNode.childNodes[1].id;
+    let countStepEl = document.getElementById(countStepId);
+    if(countStepEl.value === "") {
+        alert("Please enter count step");
+        return;
+    }
+    store.dispatch(decrement(id, parseInt(countStepEl.value)));
 }
 
 let counterId = 1;
@@ -112,6 +124,8 @@ addCounterEl.addEventListener("click", () => {
     let counterIdName = "counter-" + counterId;
     const newCounter = counterCloneEl.cloneNode(true);
     newCounter.childNodes[1].id = counterIdName;
+    newCounter.childNodes[3].childNodes[1].id = "count-step-" + counterId;
+    newCounter.childNodes[3].childNodes[1].value = "";
     counterWrapperEl.appendChild(newCounter);
     store.dispatch(
         counter({
