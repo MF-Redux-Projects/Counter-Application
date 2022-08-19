@@ -100,8 +100,11 @@ function handleIncrement(event) {
     let id = event.target.parentNode.parentNode.childNodes[1].id;
     let countStepId = event.target.parentNode.childNodes[1].id;
     let countStepEl = document.getElementById(countStepId);
-    if(countStepEl.value === "") {
+    if (countStepEl.value === "") {
         alert("Please enter count step");
+        return;
+    } else if (countStepEl.value < 0) {
+        alert("Please enter positive count step");
         return;
     }
     store.dispatch(increment(id, parseInt(countStepEl.value)));
@@ -111,8 +114,11 @@ function handleDecrement(event) {
     let id = event.target.parentNode.parentNode.childNodes[1].id;
     let countStepId = event.target.parentNode.childNodes[1].id;
     let countStepEl = document.getElementById(countStepId);
-    if(countStepEl.value === "") {
+    if (countStepEl.value === "") {
         alert("Please enter count step");
+        return;
+    } else if (countStepEl.value < 0) {
+        alert("Please enter positive count step");
         return;
     }
     store.dispatch(decrement(id, parseInt(countStepEl.value)));
@@ -142,5 +148,6 @@ resetEl.addEventListener("click", () => {
     state.counter.forEach((item) => {
         item.counter = 0;
         document.getElementById(item.idName).innerHTML = 0;
+        document.getElementById(item.idName).parentNode.childNodes[3].childNodes[1].value = "";
     });
 });
