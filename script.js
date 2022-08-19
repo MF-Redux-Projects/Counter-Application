@@ -49,7 +49,6 @@ const counter = (value) => {
 
 //Create Reducer Function
 function counterReducer(state = initialState, action) {
-    let index = 0;
     let currentState = state;
     if (action.type === INCREMENT || action.type === DECREMENT) {
         Object.keys(state.counter).forEach((key) => {
@@ -71,7 +70,6 @@ function counterReducer(state = initialState, action) {
             return {
                 ...currentState,
             };
-
         case COUNTER:
             return {...state, counter: [...state.counter, action.payload]};
         default:
